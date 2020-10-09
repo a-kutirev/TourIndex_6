@@ -1,0 +1,194 @@
+﻿<Window x:Class="TourTelerik_V6.MainWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+                xmlns:local="clr-namespace:TourTelerik_V6" 
+                xmlns:staticgroup="clr-namespace:ControlsLib.StaticGroup;assembly=ControlsLib" 
+                xmlns:local1="clr-namespace:ControlsLib;assembly=ControlsLib"
+                ResizeMode="CanMinimize" WindowState="Maximized"
+                Title="Индэкс" Height="1000" Width="1850">
+
+    <Window.Resources>
+        <local1:DayButtonTemplateSelector x:Key="DayButtonTemplateSelector">
+            <local1:DayButtonTemplateSelector.DefaultTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Text}" />
+                </DataTemplate>
+            </local1:DayButtonTemplateSelector.DefaultTemplate>
+            <local1:DayButtonTemplateSelector.WeekendDayTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Image Source="Resource/weekend.png" />
+                        <TextBlock Text="{Binding Text}" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </local1:DayButtonTemplateSelector.WeekendDayTemplate>
+            <local1:DayButtonTemplateSelector.AddGuidDayTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Image Source="Resource/addguid.png" />
+                        <TextBlock Text="{Binding Text}" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center"/>
+
+                    </Grid>
+                </DataTemplate>
+            </local1:DayButtonTemplateSelector.AddGuidDayTemplate>
+        </local1:DayButtonTemplateSelector>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <telerik:RadRibbonView Grid.Row="0" ApplicationName="" telerik:StyleManager.Theme="Fluent">
+            <telerik:RadRibbonView.Items>
+                <telerik:RadRibbonTab Header="Главная" >
+                    <telerik:RadRibbonGroup Header="Добавить">
+                        <telerik:RadRibbonButton Width="50" Name="Add1" ToolTip="Новая экскурсия" VerticalContentAlignment="Center">
+                            <telerik:RadRibbonButton.Content>
+                                <Image Source="./Resource/AddTour.png" Stretch="Fill" Width="45"/>
+                            </telerik:RadRibbonButton.Content>
+                        </telerik:RadRibbonButton>
+                        <telerik:RadRibbonButton Width="50" Name="Add2" ToolTip="Новое мероприятие" VerticalContentAlignment="Center">
+                            <telerik:RadRibbonButton.Content>
+                                <Image Source="./Resource/AddEvent.png" Stretch="Fill" Width="45"/>
+                            </telerik:RadRibbonButton.Content>
+                        </telerik:RadRibbonButton>
+                        <telerik:RadRibbonButton Width="50" Name="Add3" ToolTip="Новая заметка" VerticalContentAlignment="Center">
+                            <telerik:RadRibbonButton.Content>
+                                <Image Source="./Resource/AddNote.png" Stretch="Fill" Width="45"/>
+                            </telerik:RadRibbonButton.Content>
+                        </telerik:RadRibbonButton>
+                        <telerik:RadRibbonButton Width="50" Name="Add4" ToolTip="Добавить отсутствующего" VerticalContentAlignment="Center">
+                            <telerik:RadRibbonButton.Content>
+                                <Image Source="./Resource/AddMiss.png" Stretch="Fill" Width="45"/>
+                            </telerik:RadRibbonButton.Content>
+                        </telerik:RadRibbonButton>
+                    </telerik:RadRibbonGroup>
+                    <telerik:RadRibbonGroup Header="Дополнительно">
+                        <telerik:RadRibbonButton Width="50" Name="Calendar" ToolTip="Открыть календарь" VerticalContentAlignment="Center"
+                                                 Click="Calendar_Click">
+                            <telerik:RadRibbonButton.Content>
+                                <Image Source="Resource/Calendar.png" Stretch="Fill" Width="45"/>
+                            </telerik:RadRibbonButton.Content>
+                        </telerik:RadRibbonButton>
+                        <telerik:RadRibbonButton Width="50" Name="Svodka" ToolTip="Данные о проведенных экскурсиях" VerticalContentAlignment="Center">
+                            <telerik:RadRibbonButton.Content>
+                                <Image Source="Resource/Table.png" Stretch="Fill" Width="45"/>
+                            </telerik:RadRibbonButton.Content>
+                        </telerik:RadRibbonButton>
+                    </telerik:RadRibbonGroup>
+                    <telerik:RadRibbonGroup Header="Информация">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding TitleString}" VerticalAlignment="Center" VerticalContentAlignment="Center"
+                                   FontSize="32" FontWeight="Bold" Margin="20,0,20,0" Width="800"/>
+                            <Image Source="Resource/warning.png"/>
+                            <Image Source="Resource/brick.png"/>
+                        </StackPanel>
+                    </telerik:RadRibbonGroup>
+                </telerik:RadRibbonTab>
+                <telerik:RadRibbonTab Header="Печать" />
+                <telerik:RadRibbonTab Header="Справочники" />
+                <telerik:RadRibbonTab Header="Инструменты" />
+                <telerik:RadRibbonTab Header="Настройки" />
+                <telerik:RadRibbonTab Header="Темы" Visibility="Collapsed">
+                    <telerik:RadRibbonGroup Header="Выберите тему">
+                        <telerik:RadRibbonRadioButton GroupName="a1" Width="50" Content="1" Name="a1" Checked="a1_Checked"/>
+                        <telerik:RadRibbonRadioButton GroupName="a1" Width="50" Content="2" Name="a2" Checked="a1_Checked"  IsChecked="True"/>
+                        <telerik:RadRibbonRadioButton GroupName="a1" Width="50" Content="3" Name="a3" Checked="a1_Checked"/>
+                        <telerik:RadRibbonRadioButton GroupName="a1" Width="50" Content="4" Name="a4" Checked="a1_Checked"/>
+                        <telerik:RadRibbonRadioButton GroupName="a1" Width="50" Content="5" Name="a5" Checked="a1_Checked"/>
+                        <telerik:RadRibbonRadioButton GroupName="a1" Width="50" Content="6" Name="a6" Checked="a1_Checked"/>
+                    </telerik:RadRibbonGroup>
+                </telerik:RadRibbonTab>
+            </telerik:RadRibbonView.Items>
+        </telerik:RadRibbonView>
+
+        <telerik:RadDocking Grid.Row="1">
+            
+            <telerik:RadDocking.DocumentHost>
+                <telerik:RadSplitContainer>
+                    <telerik:RadPaneGroup>
+                        <telerik:RadPane Header="Расписание экскурсий" CanFloat="False" CanUserClose="False">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                                <StackPanel Orientation="Vertical" Name="container" Background="White">
+                                    <staticgroup:GroupHeader/>
+                                    <staticgroup:GroupHeader/>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </telerik:RadPane>
+                    </telerik:RadPaneGroup>
+                </telerik:RadSplitContainer>
+            </telerik:RadDocking.DocumentHost>
+            
+            <telerik:RadSplitContainer InitialPosition="DockedRight" Orientation="Vertical" Width="300">
+                <telerik:RadPaneGroup> 
+                    <telerik:RadPane Header="Календарь" CanUserClose="False">
+                        <telerik:RadCalendar Margin="10" Name="calendar" RenderTransformOrigin="0.543,0.487" 
+                                             DayTemplateSelector="{StaticResource DayButtonTemplateSelector}" telerik:StyleManager.Theme="Fluent"
+                                             SelectionChanged="calendar_SelectionChanged" 
+                                             DisplayDateChanged="calendar_DisplayDateChanged"
+                                             SelectedDate="{Binding CurrentDate, Mode=TwoWay}"
+                                             MaxHeight="350" VerticalAlignment="Top">
+                            <telerik:RadContextMenu.ContextMenu>
+                                <telerik:RadContextMenu Opened="CalendarContext_Opened">
+                                    <telerik:RadMenuItem Header="Дополнительные заметки на день" Click="CalendarContext_Click"/>
+                                </telerik:RadContextMenu>
+                            </telerik:RadContextMenu.ContextMenu>
+                        </telerik:RadCalendar>
+                    </telerik:RadPane>
+                </telerik:RadPaneGroup>
+                <telerik:RadPaneGroup telerik:StyleManager.Theme="Office_Blue">
+                    <telerik:RadPane Header="Назначенные экскурсии" CanUserClose="False">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+                            <telerik:RadTreeView Margin="10" Grid.Row="0">
+                                <telerik:RadTreeViewItem Header="Экскурсовод 1">
+                                    <telerik:RadTreeViewItem Header="Экскурсия 1"/>
+                                    <telerik:RadTreeViewItem Header="Экскурсия 2"/>
+                                    <telerik:RadTreeViewItem Header="Экскурсия 3"/>
+                                </telerik:RadTreeViewItem>
+                                <telerik:RadTreeViewItem Header="Экскурсовод 2" IsExpanded="True">
+                                    <telerik:RadTreeViewItem Header="Экскурсия 1"/>
+                                    <telerik:RadTreeViewItem Header="Экскурсия 2"/>
+                                    <telerik:RadTreeViewItem Header="Экскурсия 3"/>
+                                </telerik:RadTreeViewItem>
+                                <telerik:RadTreeViewItem Header="Экскурсовод 3">
+                                    <telerik:RadTreeViewItem Header="Экскурсия 1"/>
+                                    <telerik:RadTreeViewItem Header="Экскурсия 2"/>
+                                    <telerik:RadTreeViewItem Header="Экскурсия 3"/>
+                                </telerik:RadTreeViewItem>
+                                <telerik:RadTreeViewItem Header="Экскурсовод 4">
+                                    <telerik:RadTreeViewItem Header="Экскурсия 1"/>
+                                    <telerik:RadTreeViewItem Header="Экскурсия 2"/>
+                                    <telerik:RadTreeViewItem Header="Экскурсия 3"/>
+                                </telerik:RadTreeViewItem>
+                            </telerik:RadTreeView>
+                            <telerik:RadButton Grid.Row="1" Content="Добавить"/>
+                        </Grid>
+                    </telerik:RadPane>
+                </telerik:RadPaneGroup>
+                <telerik:RadPaneGroup>
+                    <telerik:RadPane Header="Отсутствующе" CanUserClose="False">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+                            <telerik:RadButton Grid.Row="1" Content="Добавить"/>
+                        </Grid>
+                    </telerik:RadPane>
+                </telerik:RadPaneGroup>
+            </telerik:RadSplitContainer>
+
+        </telerik:RadDocking>
+    </Grid>
+</Window>

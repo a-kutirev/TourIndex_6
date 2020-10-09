@@ -1,0 +1,18 @@
+﻿<Window x:Class="TourTelerik_V6.CalendarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+        xmlns:local="clr-namespace:TourTelerik_V6" ResizeMode="NoResize"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Календарь" Height="1000" Width="1300">
+    <Grid>
+        <telerik:RadScheduleView x:Name="ScheduleView" ActiveViewDefinitionIndex="1" 
+                                 AppointmentsSource="{Binding Appointments}" telerik:StyleManager.Theme="Fluent">
+            <telerik:RadScheduleView.ViewDefinitions>
+                <telerik:MonthViewDefinition />
+            </telerik:RadScheduleView.ViewDefinitions>
+        </telerik:RadScheduleView>
+    </Grid>
+</Window>
